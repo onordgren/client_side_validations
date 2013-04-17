@@ -135,8 +135,8 @@
   }
 
   window.ClientSideValidations.selectors = {
-    inputs: ':input:not(button):not([type="submit"])[name]:enabled',
-    validate_inputs: ':input:enabled[data-validate]',
+    inputs: ':input:not(button):not([type="submit"])[name]:visible:enabled',
+    validate_inputs: ':input:enabled:visible[data-validate]',
     forms: 'form[data-validate]'
   };
 
