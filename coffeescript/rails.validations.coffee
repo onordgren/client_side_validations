@@ -56,6 +56,9 @@ validateForm = (form, validators) ->
   valid
 
 validateElement = (element, validators) ->
+  console.log(element)
+  console.log(validators)
+  
   element.trigger('element:validate:before.ClientSideValidations')
 
   passElement = ->
@@ -69,6 +72,7 @@ validateElement = (element, validators) ->
     element.trigger('element:validate:after.ClientSideValidations').data('valid') != false
 
   executeValidators = (context) ->
+    console.log(context)
     valid = true
 
     for kind, fn of context
