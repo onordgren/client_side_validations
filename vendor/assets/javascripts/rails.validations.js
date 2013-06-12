@@ -57,11 +57,10 @@
         console.log(validator_name)
         validator = validators[validator_name];
         if (validator_name.match("\\[" + captures[1] + "\\].*\\[\\]\\[" + captures[2] + "\\]$")) {
-          console.log("ValidatorsFor inner loop name before:")
-          console.log(name)
           name = name.replace(/\[[\da-z_]+\]\[(\w+)\]$/g, "[][$1]");
-          console.log("ValidatorsFor inner loop name after:")
-          console.log(name)
+        }
+        else if (captures[0].match("entities_attributes")) {
+          name = name.replace(/\[entities_attributes\]\[(\d+)\]/g, "[entities_attributes][wildcard]");
         }
       }
     }
