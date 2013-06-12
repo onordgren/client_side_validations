@@ -50,10 +50,18 @@
     console.log(validators)
     var captures, validator, validator_name;
     if (captures = name.match(/\[(\w+_attributes)\].*\[(\w+)\]$/)) {
+      console.log("ValidatorsFor captures:")
+      console.log(captures)
       for (validator_name in validators) {
+        console.log("ValidatorsFor validator in loop:")
+        console.log(validator_name)
         validator = validators[validator_name];
         if (validator_name.match("\\[" + captures[1] + "\\].*\\[\\]\\[" + captures[2] + "\\]$")) {
+          console.log("ValidatorsFor inner loop name before:")
+          console.log(name)
           name = name.replace(/\[[\da-z_]+\]\[(\w+)\]$/g, "[][$1]");
+          console.log("ValidatorsFor inner loop name after:")
+          console.log(name)
         }
       }
     }
