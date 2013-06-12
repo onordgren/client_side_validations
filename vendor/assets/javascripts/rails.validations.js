@@ -44,6 +44,10 @@
   };
 
   validatorsFor = function(name, validators) {
+    console.log("ValidatorsFor name:")
+    console.log(name)
+    console.log("ValidatorsFor validators:")
+    console.log(validators)
     var captures, validator, validator_name;
     if (captures = name.match(/\[(\w+_attributes)\].*\[(\w+)\]$/)) {
       for (validator_name in validators) {
@@ -76,9 +80,11 @@
   };
 
   validateElement = function(element, validators) {
+    console.log("validateElement: element") 
     console.log(element)
+    console.log("validateElement: validators") 
     console.log(validators)
-    
+
     var afterValidate, destroyInputName, executeValidators, failElement, local, passElement, remote;
     element.trigger('element:validate:before.ClientSideValidations');
     passElement = function() {
