@@ -76,6 +76,9 @@
   };
 
   validateElement = function(element, validators) {
+    console.log(element)
+    console.log(validators)
+    
     var afterValidate, destroyInputName, executeValidators, failElement, local, passElement, remote;
     element.trigger('element:validate:before.ClientSideValidations');
     passElement = function() {
