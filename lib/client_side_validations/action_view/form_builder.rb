@@ -97,6 +97,7 @@ module ClientSideValidations::ActionView::Helpers
         name = options[:name] || "#{@object_name}#{index}[#{method}]"
         child_index = @options[:child_index] ? "(\\d+|#{Regexp.escape(@options[:child_index].to_s)})" : "\\d+"
         #name = name.to_s.gsub(/_attributes\]\[#{child_index}\]/, '_attributes][]')
+        name = name.to_s.gsub(/_attributes\]\[new_entities\]/, '_attributes][]')
         name = "#{name}#{options[:multiple] ? "[]" : nil}"
         @options[:validators][@object][method] = { :name => name, :options => options[:validate] }
       end
