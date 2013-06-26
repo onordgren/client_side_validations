@@ -44,17 +44,9 @@
   };
 
   validatorsFor = function(name, validators) {
-    console.log("ValidatorsFor name:")
-    console.log(name)
-    console.log("ValidatorsFor validators:")
-    console.log(validators)
     var captures, validator, validator_name;
     if (captures = name.match(/\[(\w+_attributes)\].*\[(\w+)\]$/)) {
-      console.log("ValidatorsFor captures:")
-      console.log(captures)
       for (validator_name in validators) {
-        console.log("ValidatorsFor validator in loop:")
-        console.log(validator_name)
         validator = validators[validator_name];
         if (validator_name.match("\\[" + captures[1] + "\\].*\\[\\]\\[" + captures[2] + "\\]$")) {
           name = name.replace(/\[[\da-z_]+\]\[(\w+)\]$/g, "[][$1]");
@@ -87,10 +79,6 @@
   };
 
   validateElement = function(element, validators) {
-    console.log("validateElement: element") 
-    console.log(element)
-    console.log("validateElement: validators") 
-    console.log(validators)
 
     var afterValidate, destroyInputName, executeValidators, failElement, local, passElement, remote;
     element.trigger('element:validate:before.ClientSideValidations');
